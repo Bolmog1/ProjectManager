@@ -12,6 +12,7 @@ from widget import projectWindow
 from widget.createProjectDialog import CreateProjectDialog
 from widget.chooseProjectWindow import Ui_MainWindow
 from widget.projectWindow import ProjectWindow
+from file_management import ensure_file_exist
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -77,7 +78,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def reload_stylesheet(self):
         print("Reloading QSS...")  # Optionnel pour debug
         try:
-            with open("style.qss", "r") as f:
+            stylefile = ensure_file_exist("style.qss")
+            with open(stylefile, "r") as f:
                 _style = f.read()
                 QtWidgets.QApplication.instance().setStyleSheet(_style)
         except Exception as e:
@@ -135,7 +137,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
 
-    with open("style.qss", "r") as f:
+    stylefile = ensure_file_exist("style.qss")
+    print("stylefile : ", stylefile)
+
+    with open(stylefile, "r") as f:
         _style = f.read()
         app.setStyleSheet(_style)
 

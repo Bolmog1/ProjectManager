@@ -1,9 +1,14 @@
+from file_management import ensure_file_exist
 from const import DB_NAME
 from db_class import *
 import sqlite3
 
-CONNECTOR: sqlite3.Connection = sqlite3.connect(DB_NAME)
-CURSOR: sqlite3.Cursor = CONNECTOR.cursor()
+CONNECTOR: sqlite3.Connection
+CURSOR: sqlite3.Cursor
+
+db_path = ensure_file_exist(DB_NAME)
+CONNECTOR = sqlite3.connect(db_path)
+CURSOR = CONNECTOR.cursor()
 
 def get_project_count() -> int:
     """
@@ -17,7 +22,7 @@ def get_n_project(n: int) -> Project|None:
     :param n: Number of the search projects
     :return: tuple of "num", "title", "desc", "progress" in that oder
     """
-    req = CURSOR.execute('SELECT "num", "title", "desc", "progress", "status", "icon" FROM projects ORDER BY num LIMIT 1 OFFSET ?', [n])
+    req = CURSOR.execute('SELECT "num", "title", "desc", "progress", "status", "icon" FROM projects ORDER BY num DESC LIMIT 1 OFFSET ?', [n])
     r = req.fetchone()
     if not r:
         return None

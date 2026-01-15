@@ -1,0 +1,166 @@
+* {
+    color:palette(Text);
+}
+
+QMainWindow, QDialog {
+    background-color:palette(Base);
+}
+
+QComboBox {
+    padding: 7px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: palette(Button);
+    font-weight: 600;
+}
+
+QComboBox::drop-down {
+    width: 22px;
+    border: none;
+    subcontrol-origin: padding;
+    subcontrol-position: right center;
+    padding-right: 6px;
+}
+
+QComboBox::down-arrow {
+    image: url("/Volumes/HD/Projects/boldo/asset/arrow_down.png");
+    width: 12px;
+    height: 12px;
+}
+
+QComboBox:hover {
+    background-color: palette(Highlight);
+}
+
+QPushButton {
+    padding: 7px 12px;
+    border-radius: 4px;
+    background-color: palette(Button);
+    font-weight: 600;
+}
+
+QPushButton:hover {
+    background-color: palette(Highlight);
+}
+
+QPushButton:pressed {
+    background-color: palette(Button);
+}
+
+QPushButton[class="main"] {
+    background-color: palette(Link);
+    color:white;
+}
+
+QPushButton[class="main"]:pressed {
+    background-color: palette(LinkVisited);
+    color:white;
+}
+
+QPushButton[class="delete"] {
+    color: palette(BrightText);
+}
+
+#overviewButton, #taskButton, #docButton {
+    margin: 10px 10px
+}
+
+QTabWidget::pane, QTabWidget, #overviewTab, #tasksTab, #documentationTab {
+    background-color: palette(Base);
+}
+
+QTextBrowser {
+    border: None;
+}
+
+#tabWidget {
+    padding: 0px;
+}
+
+QLabel#projectLabel {
+    padding:10px;
+}
+
+QToolTip {
+    background-color: palette(Base);
+    color: black;
+    border: 1px solid black;
+    font-size: 13px;
+    padding:1px 3px;
+}
+
+QListView[class="liste"] {
+    border: none;
+}
+
+QListView[class="liste"]::item {
+    padding: 5px 2px;
+    border-radius:5px;
+}
+
+QListView[class="liste"]::item:hover {
+    background-color: palette(Button);
+}
+
+QListView[class="liste"]::item:selected {
+    background-color: palette(Link);
+}
+
+QListView[class="liste"]::item:pressed {
+    background-color: palette(LinkVisited);
+}
+
+
+#taskLine, #docLine{
+    border: none;
+    border-left: 1px solid grey;
+}
+
+#taskHLine, #docHLine {
+    border: none;
+    border-bottom: 1px solid grey;
+}
+
+QListView#projectList {
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+}
+
+QListView#projectList::item {
+    padding: 15px 10px;
+    border-radius:5px;
+}
+
+QListView#projectList::item:hover {
+    background-color: palette(Button);
+}
+
+QListView#projectList::item:selected {
+    background-color: palette(Link);
+}
+
+QScrollBar {width:0px;}
+
+QLineEdit {
+    border-radius:4px;
+    border: 1px solid black;
+    padding: 2px;
+}
+
+QPlainTextEdit {
+    border-radius:4px;
+    border: 1px solid black;
+    padding: 2px;
+}
+
+/* editable widget */
+
+*[class="EditableLabelViewer"], *[class="EditableLabelEditor"] {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+*[class="EditableLabelViewer"] {
+    margin: 4px 0px;
+}
